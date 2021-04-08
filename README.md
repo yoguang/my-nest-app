@@ -34,6 +34,8 @@ $ npm run test:cov
 
 ## TimeLine
 
-> 添加 swagger 自动生成接口文档 访问地址 http://localhost:3000/api-docs
+- [x] 添加 swagger 自动生成接口文档 访问地址 http://localhost:3000/api-docs
 
+- [ ] 接入数据库 mongoose 连接 MongoDB 
 
+- [ ] 验证接口请求
