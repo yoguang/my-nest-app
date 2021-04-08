@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, Logger } from '@nestjs/common';
 
 const PostsListMock = [
   { id: '1', title: '我是帖子1', author: 'stephen_w' },
@@ -21,7 +21,7 @@ export class PostsController {
 
   @Get('list')
   getList(@Query() query): IResponse { // 使用 Query 装饰器获取接口？之后的参数
-    console.log('query----->', query)
+    Logger.log(JSON.stringify(query), 'posts getList query');
     return {
       success: true,
       result: PostsListMock,
@@ -31,7 +31,7 @@ export class PostsController {
   @Post('create')
   create(@Body() body: ICreateBody): IResponse { // 使用 Body 装饰器获取 body 中的数据
     const { title, author } = body;
-    console.log('title, author---->', body);
+    Logger.log(JSON.stringify(body), 'posts create body');
     const createId = Date.now().toString();
     return {
       success: true,
@@ -41,6 +41,7 @@ export class PostsController {
 
   @Get(':id')
   detail(@Param('id') id: string): IResponse { // 使用 @Parma 装饰器获取接口参数帖子 ID
+    Logger.log(id, 'posts detai id');
     const post = PostsListMock.find(item => item.id === id);
     if (post) {
       return {
