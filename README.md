@@ -31,3 +31,9 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## TimeLine
+
+> 添加 swagger 自动生成接口文档 访问地址 http://localhost:3000/api-docs
+
+
